@@ -120,19 +120,19 @@ def graphical_abstract(t2, summary, a):
     fig = plt.figure(figsize=(13.28, 5.31)); ax = fig.add_axes([0, 0, 1, 1]); ax.axis("off")
     ax.set_xlim(0, 100); ax.set_ylim(0, 40)
     def box(x, y, w, h, title, body, fc):
-        ax.add_patch(plt.Rectangle((x, y), w, h, fc=fc, ec="#333333", lw=1.2, zorder=1))
+        ax.add_patch(plt.Rectangle((x, y), w, h, fc=fc, ec="black", lw=1.2, zorder=1))
         ax.text(x + w / 2, y + h - 2.6, title, ha="center", va="top", fontsize=12.5, weight="bold")
         ax.text(x + w / 2, y + h / 2 - 2.5, body, ha="center", va="center", fontsize=10.5, linespacing=1.5)
     def arrow(x0, y0, x1, y1):
-        ax.annotate("", (x1, y1), (x0, y0), arrowprops=dict(arrowstyle="-|>", lw=1.8, color="#333333"))
+        ax.annotate("", (x1, y1), (x0, y0), arrowprops=dict(arrowstyle="-|>", lw=1.8, color="black"))
     ax.text(50, 38, "UCDI: Uncertainty-Calibrated Decision Intelligence for selective AI automation",
             ha="center", va="top", fontsize=15, weight="bold")
     d = summary["data"]
-    box(1, 9, 17, 23, "Enterprise data", f"Credit-default records\nn = {d['n']:,}, {d['features']} predictors\n60/20/20 train/\ncalibration/test", "#e8eef7")
-    box(22, 9, 17, 23, "Knowledge layer", "LogReg, RF, GB\nraw / sigmoid /\nisotonic calibration\nmodel chosen on\ncalibration split", "#fdf0e6")
-    box(43, 9, 17, 23, "Uncertainty gate", "u(x) = 1 - |2p(x) - 1|\nrank cases by u\nautomate lowest-u\ncoverage c = 0.80", "#eef6ee")
-    box(65, 22, 33, 11, "Automate 80% of decisions", f"selective accuracy {r.selective_accuracy:.3f}  (vs {1-r.full_risk:.3f} full)", "#dff0df")
-    box(65, 6, 33, 13, "Defer 20% to human review", f"captures {100*r.error_capture:.1f}% of all model errors\n{r.lift:.2f}x random deferral (p {'< 0.001' if r.perm_p < 0.001 else '= %.3f' % r.perm_p})", "#fbe3e3")
+    box(1, 9, 17, 23, "Enterprise data", f"Credit-default records\nn = {d['n']:,}, {d['features']} predictors\n60/20/20 train/\ncalibration/test", "white")
+    box(22, 9, 17, 23, "Knowledge layer", "LogReg, RF, GB\nraw / sigmoid /\nisotonic calibration\nmodel chosen on\ncalibration split", "white")
+    box(43, 9, 17, 23, "Uncertainty gate", "u(x) = 1 - |2p(x) - 1|\nrank cases by u\nautomate lowest-u\ncoverage c = 0.80", "white")
+    box(65, 22, 33, 11, "Automate 80% of decisions", f"selective accuracy {r.selective_accuracy:.3f}  (vs {1-r.full_risk:.3f} full)", "white")
+    box(65, 6, 33, 13, "Defer 20% to human review", f"captures {100*r.error_capture:.1f}% of all model errors\n{r.lift:.2f}x random deferral (p {'< 0.001' if r.perm_p < 0.001 else '= %.3f' % r.perm_p})", "white")
     arrow(18, 20.5, 22, 20.5); arrow(39, 20.5, 43, 20.5); arrow(60, 22, 65, 27.5); arrow(60, 19, 65, 12.5)
     s = summary["seeds"]
     ax.text(50, 2.2, f"Robust over {a.seeds} random splits: selective accuracy {s['sel_acc_mean']:.3f} +/- {s['sel_acc_sd']:.3f}, "

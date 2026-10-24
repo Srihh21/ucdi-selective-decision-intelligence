@@ -2,7 +2,7 @@
 
 Code and data for the short communication
 **"Selective Decision Intelligence Under Predictive Uncertainty: Calibration, Human Deferral, and Error Concentration in AI Automation"**
-(Srihitha Reddy Bethelly, submitted to *Knowledge-Based Systems*).
+(Srihitha Reddy Betelly, submitted to *Knowledge-Based Systems*).
 
 UCDI decides which credit decisions an AI model should automate and which it should defer to a human reviewer. It ranks cases by the uncertainty of a calibrated probability, `u(x) = 1 - |2p(x) - 1|`, then evaluates the trade-off between automation coverage, error on the automated cases, and how many of the model's errors end up in the deferred cases.
 
