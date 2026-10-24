@@ -1,0 +1,21 @@
+{
+  "data": {
+    "n": 30000,
+    "features": 23,
+    "prevalence": 0.2212,
+    "n_train": 18000,
+    "n_cal": 6000,
+    "n_test": 6000,
+    "prev_train": 0.2212222222222222,
+    "prev_cal": 0.22116666666666668,
+    "prev_test": 0.22116666666666668
+  },
+  "decision_model": "RandomForest+isotonic",
+  "seeds": {
+    "sel_acc_mean": 0.8692291666666666,
+    "sel_acc_sd": 0.003099510241081297,
+    "lift_mean": 2.081108288975952,
+    "lift_sd": 0.03963149602390998,
+    "capture_mean": 0.4162216577951903
+  }
+}
